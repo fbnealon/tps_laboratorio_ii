@@ -68,8 +68,8 @@ namespace MiCalculadora
             this.cmbOperador.Items.AddRange(new object[] {
             "+",
             "-",
-            "/",
-            "*"});
+            "*",
+            "/"});
             this.cmbOperador.Location = new System.Drawing.Point(197, 82);
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(163, 45);

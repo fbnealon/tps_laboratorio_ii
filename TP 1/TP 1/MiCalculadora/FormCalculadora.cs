@@ -17,10 +17,22 @@ namespace MiCalculadora
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Llama al método Close para reutilizar la confirmación de salida en el método FormClosing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        
+        /// <summary>
+        /// En caso de no estar vacío, convierte el número decimal de lblResultado a binario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             if (this.lblResultado.Text != "")
@@ -29,6 +41,12 @@ namespace MiCalculadora
                 this.lblResultado.Text = numero.DecimalBinario(this.lblResultado.Text);
             }
         }
+
+        /// <summary>
+        /// En caso de no estar vacío, convierte el número binario de lblResultado a decimal.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             if (this.lblResultado.Text != "")
@@ -37,10 +55,21 @@ namespace MiCalculadora
                 this.lblResultado.Text = binario.BinarioDecimal(this.lblResultado.Text);
             }
         }
+        
+        /// <summary>
+        /// Borra los números ingresados y resultado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.Limpiar();
         }
+        /// <summary>
+        /// Realiza la operación ingresada. Genera mensaje de alerta si no se seleccionó un operando previamente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             if (this.cmbOperador.Text == "")
@@ -63,18 +92,36 @@ namespace MiCalculadora
 
             }
         }
+        
+        /// <summary>
+        /// Invoca al método Limpiar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
             this.Limpiar();
         }
+        
+        /// <summary>
+        /// Borra los operandos, el operador y el resultado. La lista de historial de operaciones permanece sin borrar.
+        /// </summary>
         private void Limpiar()
         {
             this.txtNumero1.Clear();
             this.txtNumero2.Clear();
-            this.cmbOperador.ResetText();
+            this.cmbOperador.SelectedIndex = -1;
             this.lblResultado.ResetText();
             this.lstOperaciones.ResetText();
         }
+        
+        /// <summary>
+        /// Invoca al método Operar de la clase Calculadora para retornar el valor del resultado de la operación.
+        /// </summary>
+        /// <param name="numero1"></param>
+        /// <param name="numero2"></param>
+        /// <param name="operador"></param>
+        /// <returns></returns>
         private static double Operar(string numero1, string numero2, string operador)
         {
             Operando operando1 = new Operando(numero1);
@@ -85,7 +132,11 @@ namespace MiCalculadora
         }
 
 
-
+        /// <summary>
+        /// Muestra un mensaje para confirmar la salida del formulario. En caso de elegir no, el formulario permanece abierto.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult rta = MessageBox.Show("¿Seguro de querer salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);

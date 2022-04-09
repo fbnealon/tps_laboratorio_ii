@@ -4,6 +4,11 @@ namespace Entidades
 {
     public static class Calculadora
     {
+        /// <summary>
+        /// Valida operador. En caso de no ser válido, el operador por defecto es la suma.
+        /// </summary>
+        /// <param name="operador"></param>
+        /// <returns></returns>
         private static char ValidarOperador(char operador)
         {
             char op = '+';
@@ -14,6 +19,13 @@ namespace Entidades
             return op;
         }
 
+        /// <summary>
+        /// Realiza la operación correspondiente y retorna el resultado de la misma.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <param name="operador"></param>
+        /// <returns></returns>
         public static double Operar(Operando num1, Operando num2, char operador)
         {
             double resultado;
