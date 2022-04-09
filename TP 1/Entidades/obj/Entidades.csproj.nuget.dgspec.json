@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\TP 1\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\TP 1\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\TP 1\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\TP 1\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\Federico\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\TP 1\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\TP 1\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Federico\\AppData\\Roaming\\NuGet\\NuGet.Config",
