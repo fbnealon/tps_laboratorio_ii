@@ -66,30 +66,33 @@ namespace MiCalculadora
             this.Limpiar();
         }
         /// <summary>
-        /// Realiza la operación ingresada. Genera mensaje de alerta si no se seleccionó un operando previamente.
+        /// Realiza la operación ingresada. Si no se selecciona operador al inicio de la aplicación, por defecto aplica el operador +.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
+            if (!double.TryParse(this.txtNumero1.Text, out _))
+            {
+                this.txtNumero1.Text = "0";
+            }
+            if (!double.TryParse(this.txtNumero2.Text, out _))
+            {
+                this.txtNumero2.Text = "0";
+            }
             if (this.cmbOperador.Text == "")
             {
-                MessageBox.Show("No se puede operar sin seleccionar previamente un operando", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.cmbOperador.Text = "+";
+            }
+            if (Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.Text) == double.MinValue)
+            {
+                MessageBox.Show("No se puede dividir por cero!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (!double.TryParse(this.txtNumero1.Text, out _))
-                {
-                    this.txtNumero1.Text = "0";
-                }
-                if (!double.TryParse(this.txtNumero2.Text, out _))
-                {
-                    this.txtNumero2.Text = "0";
-                }
                 this.lblResultado.Text = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.Text).ToString();
                 string aux = string.Format("{0} {1} {2} = {3}\n", this.txtNumero1.Text, this.cmbOperador.Text, this.txtNumero2.Text, this.lblResultado.Text);
                 this.lstOperaciones.Items.Add(aux);
-
             }
         }
         
@@ -126,8 +129,12 @@ namespace MiCalculadora
         {
             Operando operando1 = new Operando(numero1);
             Operando operando2 = new Operando(numero2);
-            char op = Convert.ToChar(operador);
-
+            char op;
+            if (!char.TryParse(operador, out op))
+            {
+                op = '+';
+                operador = "+";
+            }
             return Calculadora.Operar(operando1, operando2, op);
         }
 
