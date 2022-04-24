@@ -8,7 +8,6 @@ namespace Entidades
 {
     public class Suv : Vehiculo
     {
-        #region Propiedades
         /// <summary>
         /// SUV son 'Grande'
         /// </summary>
@@ -19,9 +18,7 @@ namespace Entidades
                 return ETamanio.Grande;
             }
         }
-        #endregion
 
-        #region Métodos
         /// <summary>
         /// Sobrescritura del método Mostrar de la clase heredada Vehículo.
         /// </summary>
@@ -37,7 +34,6 @@ namespace Entidades
 
             return sb.ToString();
         }
-        #endregion
 
         #region Constructores
         /// <summary>

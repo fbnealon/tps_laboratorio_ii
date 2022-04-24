@@ -11,12 +11,9 @@ namespace Entidades
     /// </summary>
     public class Taller
     {
-        #region Atributos
         private int espacioDisponible;
         private List<Vehiculo> vehiculos;
-        #endregion
 
-        #region "Constructores"
         /// <summary>
         /// Constructor por defecto que inicializa la lista de vehículos.
         /// </summary>
@@ -33,9 +30,7 @@ namespace Entidades
         {
             this.espacioDisponible = espacioDisponible;
         }
-        #endregion
 
-        #region "Sobrecargas"
         /// <summary>
         /// Muestro el estacionamiento y TODOS los vehículos
         /// </summary>
@@ -44,9 +39,6 @@ namespace Entidades
         {
             return Taller.Listar(this, ETipo.Todos);
         }
-        #endregion
-
-        #region "Métodos"
 
         /// <summary>
         /// Expone los datos del elemento y su lista (incluidas sus herencias)
@@ -91,9 +83,7 @@ namespace Entidades
 
             return sb.ToString();
         }
-        #endregion
 
-        #region "Operadores"
         /// <summary>
         /// Agregará un elemento a la lista
         /// </summary>
@@ -135,7 +125,6 @@ namespace Entidades
             }
             return taller;
         }
-        #endregion
 
         #region Tipo anidado
         /// <summary>

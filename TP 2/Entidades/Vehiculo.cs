@@ -11,20 +11,15 @@ namespace Entidades
     /// </summary>
     public abstract class Vehiculo
     {
-        #region Atributos
         private string chasis;
         private ConsoleColor color;
         private EMarca marca;
-        #endregion
 
-        #region Propiedades
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
         protected abstract ETamanio Tamanio { get; }
-        #endregion
 
-        #region Constructores
         /// <summary>
         /// Constructor de Vehículo con tres parámetros.
         /// </summary>
@@ -37,9 +32,7 @@ namespace Entidades
             this.marca = marca;
             this.color = color;
         }
-        #endregion
 
-        #region Métodos
         /// <summary>
         /// Publica todos los datos del Vehiculo.
         /// </summary>
@@ -48,9 +41,7 @@ namespace Entidades
         {
             return (string)this;
         }
-        #endregion
 
-        #region Sobrecargas
         /// <summary>
         /// Sobrecarga de operador explícito para castear a string todos los atributos de una instancia de clase Vehículo.
         /// </summary>
@@ -89,7 +80,6 @@ namespace Entidades
         {
             return (v1.chasis == v2.chasis);
         }
-        #endregion
 
         #region Tipos anidados
         public enum EMarca

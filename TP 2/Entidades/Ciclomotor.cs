@@ -11,7 +11,6 @@ namespace Entidades
     /// </summary>
     public class Ciclomotor : Vehiculo
     {
-        #region Propiedades
         /// <summary>
         /// Ciclomotor son 'Chico'
         /// </summary>
@@ -22,9 +21,7 @@ namespace Entidades
                 return ETamanio.Chico;
             }
         }
-        #endregion
 
-        #region Constructor
         /// <summary>
         /// Constructor que utiliza el constructor de la clase heredada Vehículo.
         /// </summary>
@@ -34,9 +31,7 @@ namespace Entidades
         public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color)
         {
         }
-        #endregion
 
-        #region Métodos
         /// <summary>
         /// Sobrescritura del método Mostrar de la clase heredada Vehículo.
         /// </summary>
@@ -52,6 +47,5 @@ namespace Entidades
 
             return sb.ToString();
         }
-        #endregion
     }
 }

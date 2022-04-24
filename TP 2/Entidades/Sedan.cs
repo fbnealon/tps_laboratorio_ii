@@ -10,11 +10,8 @@ namespace Entidades
 {
     public class Sedan : Vehiculo
     {
-        #region Atributos
         private ETipo tipo;
-        #endregion
 
-        #region Propiedades
         /// <summary>
         /// Sedan son 'Mediano'
         /// </summary>
@@ -25,9 +22,7 @@ namespace Entidades
                 return ETamanio.Mediano;
             }
         }
-        #endregion
 
-        #region Métodos
         /// <summary>
         /// Sobrescritura del método Mostrar de la clase heredada Vehículo.
         /// </summary>
@@ -45,9 +40,7 @@ namespace Entidades
 
             return sb.ToString();
         }
-        #endregion
 
-        #region Constructores
         /// <summary>
         /// Por defecto, TIPO será CuatroPuertas
         /// </summary>
@@ -71,7 +64,6 @@ namespace Entidades
         {
             this.tipo = tipo;
         }
-        #endregion
 
         #region Tipo anidado
         /// <summary>
