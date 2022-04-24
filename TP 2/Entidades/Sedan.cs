@@ -10,29 +10,11 @@ namespace Entidades
 {
     public class Sedan : Vehiculo
     {
+        #region Atributos
         private ETipo tipo;
-
-        #region Tipo anidado
-        public enum ETipo { CuatroPuertas, CincoPuertas }
         #endregion
 
-        /// <summary>
-        /// Por defecto, TIPO será CuatroPuertas
-        /// </summary>
-        /// <param name="marca"></param>
-        /// <param name="chasis"></param>
-        /// <param name="color"></param>
-        public Sedan(EMarca marca, string chasis, ConsoleColor color)
-            : base(chasis, marca, color)
-        {
-            this.tipo = ETipo.CuatroPuertas;
-        }
-
-        public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo) : this(marca, chasis, color)
-        {
-            this.tipo = tipo;
-        }
-
+        #region Propiedades
         /// <summary>
         /// Sedan son 'Mediano'
         /// </summary>
@@ -43,7 +25,13 @@ namespace Entidades
                 return ETamanio.Mediano;
             }
         }
+        #endregion
 
+        #region Métodos
+        /// <summary>
+        /// Sobrescritura del método Mostrar de la clase heredada Vehículo.
+        /// </summary>
+        /// <returns></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -57,5 +45,40 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
+
+        #region Constructores
+        /// <summary>
+        /// Por defecto, TIPO será CuatroPuertas
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        public Sedan(EMarca marca, string chasis, ConsoleColor color)
+            : base(chasis, marca, color)
+        {
+            this.tipo = ETipo.CuatroPuertas;
+        }
+
+        /// <summary>
+        /// Constructor que asigna por parámetro el tipo de sedán.
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        /// <param name="tipo"></param>
+        public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo) : this(marca, chasis, color)
+        {
+            this.tipo = tipo;
+        }
+        #endregion
+
+        #region Tipo anidado
+        /// <summary>
+        /// Tipos de sedán.
+        /// </summary>
+        public enum ETipo { CuatroPuertas, CincoPuertas }
+        #endregion
+
     }
 }

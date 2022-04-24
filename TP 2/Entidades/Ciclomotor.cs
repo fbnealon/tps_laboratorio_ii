@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase de vehículo.
+    /// </summary>
     public class Ciclomotor : Vehiculo
     {
-        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color)
-        {
-        }
-        
+        #region Propiedades
         /// <summary>
         /// Ciclomotor son 'Chico'
         /// </summary>
@@ -22,7 +22,25 @@ namespace Entidades
                 return ETamanio.Chico;
             }
         }
+        #endregion
 
+        #region Constructor
+        /// <summary>
+        /// Constructor que utiliza el constructor de la clase heredada Vehículo.
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color)
+        {
+        }
+        #endregion
+
+        #region Métodos
+        /// <summary>
+        /// Sobrescritura del método Mostrar de la clase heredada Vehículo.
+        /// </summary>
+        /// <returns></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -34,5 +52,6 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
     }
 }

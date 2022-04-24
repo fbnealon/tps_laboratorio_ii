@@ -11,18 +11,24 @@ namespace Entidades
     /// </summary>
     public class Taller
     {
-        private List<Vehiculo> vehiculos;
+        #region Atributos
         private int espacioDisponible;
-        public enum ETipo
-        {
-            Ciclomotor, Sedan, SUV, Todos
-        }
+        private List<Vehiculo> vehiculos;
+        #endregion
 
         #region "Constructores"
+        /// <summary>
+        /// Constructor por defecto que inicializa la lista de vehículos.
+        /// </summary>
         private Taller()
         {
             this.vehiculos = new List<Vehiculo>();
         }
+
+        /// <summary>
+        /// Constructor que setea el atributo de espacio disponible.
+        /// </summary>
+        /// <param name="espacioDisponible"></param>
         public Taller(int espacioDisponible) : this()
         {
             this.espacioDisponible = espacioDisponible;
@@ -128,6 +134,16 @@ namespace Entidades
                 }
             }
             return taller;
+        }
+        #endregion
+
+        #region Tipo anidado
+        /// <summary>
+        /// Enumerado de tipo de vehículos.
+        /// </summary>
+        public enum ETipo
+        {
+            Ciclomotor, Sedan, SUV, Todos
         }
         #endregion
     }
