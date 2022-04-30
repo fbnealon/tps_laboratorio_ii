@@ -119,14 +119,11 @@ namespace Entidades
             string binario = "Valor inválido";
 
             int aux = (int)Math.Abs(numero);
-            if (aux == numero || -aux == numero)
+            binario = string.Empty;
+            while (aux > 0)
             {
-                binario = string.Empty;
-                while (aux > 0)
-                {
-                    binario = aux % 2 + binario;
-                    aux /= 2;
-                }
+                binario = aux % 2 + binario;
+                aux /= 2;
             }
             return binario;
         }
@@ -138,7 +135,7 @@ namespace Entidades
         /// <returns></returns>
         public string DecimalBinario(string numero)
         {
-            string binario = "Valor invalido";
+            string binario = "Valor inválido";
             if (double.TryParse(numero, out double aux))
             {
                 binario = DecimalBinario(aux);
