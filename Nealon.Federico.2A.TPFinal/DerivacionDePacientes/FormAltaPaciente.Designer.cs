@@ -1,7 +1,7 @@
 ﻿
 namespace DerivacionDePacientes
 {
-    partial class FormAltaAfiliado
+    partial class FormAltaPaciente
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,9 @@ namespace DerivacionDePacientes
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.numEdad = new System.Windows.Forms.NumericUpDown();
+            this.cmbTipoTurno = new System.Windows.Forms.ComboBox();
+            this.lblTipoDeTurno = new System.Windows.Forms.Label();
+            this.checkAfiliado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,62 +77,98 @@ namespace DerivacionDePacientes
             this.txtNombre.Location = new System.Drawing.Point(23, 27);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(156, 23);
-            this.txtNombre.TabIndex = 3;
+            this.txtNombre.TabIndex = 5;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(23, 71);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(156, 23);
-            this.txtApellido.TabIndex = 4;
+            this.txtApellido.TabIndex = 6;
             // 
             // lblDniOAfiliado
             // 
             this.lblDniOAfiliado.AutoSize = true;
-            this.lblDniOAfiliado.Location = new System.Drawing.Point(23, 141);
+            this.lblDniOAfiliado.Location = new System.Drawing.Point(22, 166);
             this.lblDniOAfiliado.Name = "lblDniOAfiliado";
             this.lblDniOAfiliado.Size = new System.Drawing.Size(109, 15);
-            this.lblDniOAfiliado.TabIndex = 7;
+            this.lblDniOAfiliado.TabIndex = 3;
             this.lblDniOAfiliado.Text = "Numero de afiliado";
             // 
             // txtDniOAfiliado
             // 
-            this.txtDniOAfiliado.Location = new System.Drawing.Point(23, 159);
+            this.txtDniOAfiliado.Location = new System.Drawing.Point(23, 184);
             this.txtDniOAfiliado.Name = "txtDniOAfiliado";
             this.txtDniOAfiliado.Size = new System.Drawing.Size(156, 23);
-            this.txtDniOAfiliado.TabIndex = 8;
+            this.txtDniOAfiliado.TabIndex = 9;
+            this.txtDniOAfiliado.Leave += new System.EventHandler(this.txtDniOAfiliado_Leave);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(23, 188);
+            this.btnAceptar.Location = new System.Drawing.Point(23, 257);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 9;
+            this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(104, 188);
+            this.btnCancelar.Location = new System.Drawing.Point(104, 257);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // numEdad
             // 
             this.numEdad.Location = new System.Drawing.Point(23, 115);
             this.numEdad.Name = "numEdad";
             this.numEdad.Size = new System.Drawing.Size(120, 23);
-            this.numEdad.TabIndex = 11;
+            this.numEdad.TabIndex = 7;
             // 
-            // FormAltaAfiliado
+            // cmbTipoTurno
+            // 
+            this.cmbTipoTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoTurno.FormattingEnabled = true;
+            this.cmbTipoTurno.Location = new System.Drawing.Point(23, 228);
+            this.cmbTipoTurno.Name = "cmbTipoTurno";
+            this.cmbTipoTurno.Size = new System.Drawing.Size(156, 23);
+            this.cmbTipoTurno.TabIndex = 10;
+            // 
+            // lblTipoDeTurno
+            // 
+            this.lblTipoDeTurno.AutoSize = true;
+            this.lblTipoDeTurno.Location = new System.Drawing.Point(23, 210);
+            this.lblTipoDeTurno.Name = "lblTipoDeTurno";
+            this.lblTipoDeTurno.Size = new System.Drawing.Size(78, 15);
+            this.lblTipoDeTurno.TabIndex = 4;
+            this.lblTipoDeTurno.Text = "Tipo de turno";
+            // 
+            // checkAfiliado
+            // 
+            this.checkAfiliado.AutoSize = true;
+            this.checkAfiliado.Checked = true;
+            this.checkAfiliado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkAfiliado.Location = new System.Drawing.Point(22, 144);
+            this.checkAfiliado.Name = "checkAfiliado";
+            this.checkAfiliado.Size = new System.Drawing.Size(79, 19);
+            this.checkAfiliado.TabIndex = 8;
+            this.checkAfiliado.Text = "Es afiliado";
+            this.checkAfiliado.UseVisualStyleBackColor = true;
+            this.checkAfiliado.CheckedChanged += new System.EventHandler(this.checkAfiliado_CheckedChanged);
+            // 
+            // FormAltaPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(216, 226);
+            this.ClientSize = new System.Drawing.Size(216, 293);
+            this.Controls.Add(this.checkAfiliado);
+            this.Controls.Add(this.lblTipoDeTurno);
+            this.Controls.Add(this.cmbTipoTurno);
             this.Controls.Add(this.numEdad);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -140,9 +179,11 @@ namespace DerivacionDePacientes
             this.Controls.Add(this.lblEdad);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
-            this.Name = "FormAltaAfiliado";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormAltaPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Alta de afiliado";
+            this.Text = "Alta de paciente";
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -161,5 +202,8 @@ namespace DerivacionDePacientes
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.NumericUpDown numEdad;
+        private System.Windows.Forms.ComboBox cmbTipoTurno;
+        private System.Windows.Forms.Label lblTipoDeTurno;
+        private System.Windows.Forms.CheckBox checkAfiliado;
     }
 }

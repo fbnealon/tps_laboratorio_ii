@@ -29,31 +29,34 @@ namespace DerivacionDePacientes
         /// </summary>
         private void InitializeComponent()
         {
-            this.rtbPacientes = new System.Windows.Forms.RichTextBox();
+            this.dataGridAfiliados = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAfiliados)).BeginInit();
             this.SuspendLayout();
             // 
-            // rtbPacientes
+            // dataGridAfiliados
             // 
-            this.rtbPacientes.Location = new System.Drawing.Point(12, 12);
-            this.rtbPacientes.Name = "rtbPacientes";
-            this.rtbPacientes.Size = new System.Drawing.Size(776, 426);
-            this.rtbPacientes.TabIndex = 0;
-            this.rtbPacientes.Text = "";
+            this.dataGridAfiliados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAfiliados.Location = new System.Drawing.Point(12, 12);
+            this.dataGridAfiliados.Name = "dataGridAfiliados";
+            this.dataGridAfiliados.RowTemplate.Height = 25;
+            this.dataGridAfiliados.Size = new System.Drawing.Size(776, 426);
+            this.dataGridAfiliados.TabIndex = 0;
             // 
             // FormListadoDePacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.rtbPacientes);
+            this.ClientSize = new System.Drawing.Size(867, 535);
+            this.Controls.Add(this.dataGridAfiliados);
             this.Name = "FormListadoDePacientes";
             this.Text = "FormListadoDePacientes";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAfiliados)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox rtbPacientes;
+        private System.Windows.Forms.DataGridView dataGridAfiliados;
     }
 }

@@ -1,0 +1,11 @@
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\bin\Debug\net5.0\Excepciones.deps.json
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\bin\Debug\net5.0\Excepciones.dll
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\bin\Debug\net5.0\ref\Excepciones.dll
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\bin\Debug\net5.0\Excepciones.pdb
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.AssemblyInfoInputs.cache
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.AssemblyInfo.cs
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.dll
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\ref\Excepciones.dll
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.pdb

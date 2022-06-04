@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{81AC92F3-CA27-41AF-A266-4C9C12E0B034}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DerivacionDePacientes", "DerivacionDePacientes\DerivacionDePacientes.csproj", "{BE14C2CD-490D-465C-9448-C242EDA4D523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DerivacionDePacientes", "DerivacionDePacientes\DerivacionDePacientes.csproj", "{BE14C2CD-490D-465C-9448-C242EDA4D523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{B8BBE823-0C98-473E-BCB7-7D0F1B992A76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excepciones", "Excepciones\Excepciones.csproj", "{B8BBE823-0C98-473E-BCB7-7D0F1B992A76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{593C7570-EFB3-4AA4-972B-AC2CB48F4441}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B8BBE823-0C98-473E-BCB7-7D0F1B992A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8BBE823-0C98-473E-BCB7-7D0F1B992A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8BBE823-0C98-473E-BCB7-7D0F1B992A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{593C7570-EFB3-4AA4-972B-AC2CB48F4441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{593C7570-EFB3-4AA4-972B-AC2CB48F4441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{593C7570-EFB3-4AA4-972B-AC2CB48F4441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{593C7570-EFB3-4AA4-972B-AC2CB48F4441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

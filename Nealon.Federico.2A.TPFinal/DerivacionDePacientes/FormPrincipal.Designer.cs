@@ -61,6 +61,7 @@ namespace DerivacionDePacientes
             this.Controls.Add(this.btnListadoPacientes);
             this.Controls.Add(this.btnAltaPaciente);
             this.Name = "FormPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

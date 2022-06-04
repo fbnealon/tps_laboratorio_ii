@@ -22,15 +22,22 @@ namespace DerivacionDePacientes
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "Sistema de derivacion de pacientes";
+            this.Text = "Registro de pacientes";
         }
         private void btnAltaPaciente_Click(object sender, EventArgs e)
         {
-            FormAltaAfiliado formAltaAfiliado = new FormAltaAfiliado();
+            FormAltaPaciente formAltaAfiliado = new FormAltaPaciente();
 
             if (formAltaAfiliado.ShowDialog() == DialogResult.OK)
             {
-                this.pacientes += formAltaAfiliado.Afiliado;
+                if (formAltaAfiliado.PacienteAfiliado is not null)
+                {
+                    this.pacientes += formAltaAfiliado.PacienteAfiliado;
+                }
+                else
+                {
+                    this.pacientes += formAltaAfiliado.PacienteNoAfiliado;
+                }
             }
         }
 
