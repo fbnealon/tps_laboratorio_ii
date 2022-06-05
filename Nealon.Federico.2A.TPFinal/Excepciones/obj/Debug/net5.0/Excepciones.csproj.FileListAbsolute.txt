@@ -9,3 +9,4 @@ C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Exc
 C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.dll
 C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\ref\Excepciones.dll
 C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.pdb
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Excepciones\obj\Debug\net5.0\Excepciones.csproj.AssemblyReference.cache

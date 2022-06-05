@@ -45,7 +45,10 @@ namespace DerivacionDePacientes
         {
             FormListadoDePacientes formListadoDePacientes = new FormListadoDePacientes(this.pacientes);
 
-            formListadoDePacientes.ShowDialog();
+            if (formListadoDePacientes.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Los pacientes fueron serializados correctamente");
+            }
         }
 
     }

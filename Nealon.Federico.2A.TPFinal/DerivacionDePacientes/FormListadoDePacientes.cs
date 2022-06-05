@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 using Entidades;
+using Excepciones;
 
 namespace DerivacionDePacientes
 {
@@ -15,6 +18,9 @@ namespace DerivacionDePacientes
     {
         private Pacientes<Persona> pacientes;
         private DataTable dtPacientes = new DataTable("Pacientes");
+
+        public Pacientes<Persona> Pacientes { get => this.pacientes; set => this.pacientes = value; }
+
         public FormListadoDePacientes(Pacientes<Persona> pacientes)
         {
             InitializeComponent();
@@ -26,7 +32,7 @@ namespace DerivacionDePacientes
 
             foreach (Persona item in this.pacientes.Listado)
             {
-                DataRow fila = this.dtPacientes.NewRow();
+                DataRow fila = this.dtPacientes.NewRow(); 
                 item.Id = (int)fila["ID"];
                 fila["Nombre"] = item.Nombre;
                 fila["Apellido"] = item.Apellido;
@@ -61,5 +67,36 @@ namespace DerivacionDePacientes
             this.dtPacientes.Columns["ID"].AutoIncrementSeed = 1;
             this.dtPacientes.Columns["ID"].AutoIncrementStep = 1;
         }
+        private void btnSerializarPacientesXML_Click(object sender, EventArgs e)
+        {
+            Pacientes<Persona> aux= new Pacientes<Persona>();
+            foreach (Persona item in this.pacientes.Listado)
+            {
+                aux += item;
+            }
+            Pacientes<Persona>.GuardarXml(AppDomain.CurrentDomain.BaseDirectory, "listadoPacientes.xml", aux);
+        }
+
+        private void btnDeserializarPacientesXML_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Pacientes<Persona> aux = new Pacientes<Persona>();
+                Pacientes<Persona>.LeerXml(AppDomain.CurrentDomain.BaseDirectory, "listadoPacientes.xml", out aux);
+                foreach (Persona item in aux.Listado)
+                {
+                    if (this.pacientes != item)
+                    {
+                        this.pacientes += item;
+                    }
+                }
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (ArchivosException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

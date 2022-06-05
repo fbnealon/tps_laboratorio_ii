@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v5.0": {
       "Entidades/1.0.0": {
         "dependencies": {
+          "Archivos": "1.0.0",
           "Excepciones": "1.0.0"
         },
         "runtime": {
           "Entidades.dll": {}
+        }
+      },
+      "Archivos/1.0.0": {
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "runtime": {
+          "Archivos.dll": {}
         }
       },
       "Excepciones/1.0.0": {
@@ -23,6 +32,11 @@
   },
   "libraries": {
     "Entidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Archivos/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

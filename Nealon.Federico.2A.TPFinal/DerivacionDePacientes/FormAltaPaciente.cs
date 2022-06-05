@@ -106,9 +106,9 @@ namespace DerivacionDePacientes
         {
             foreach (char c in dni)
             {
-                if (c < '0' || c > '9')
+                if (c < '0' || c > '9' || dni.Length!=8)
                 {
-                    throw new DniInvalidoException("DNI se conforma de solo numeros");
+                    throw new DniInvalidoException("DNI se conforma de solo 8 numeros");
                 }
             }
         }

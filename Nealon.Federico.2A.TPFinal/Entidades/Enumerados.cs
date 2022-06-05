@@ -1,4 +1,4 @@
 ﻿public enum EEspecialidades
 {
-    Clínico, Traumatología, Pediatría, Cardiología
+    Cardiología, Clínico, Dermatología, Kinesiología, Neurología, Pediatría, Traumatología
 }

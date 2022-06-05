@@ -3,6 +3,8 @@ using System.Text;
 
 namespace Entidades
 {
+    [System.Xml.Serialization.XmlInclude(typeof(Afiliado))]
+    [System.Xml.Serialization.XmlInclude(typeof(NoAfiliado))]
     public abstract class Persona
     {
         private int id;

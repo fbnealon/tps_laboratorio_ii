@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DerivacionDePacientes", "De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excepciones", "Excepciones\Excepciones.csproj", "{B8BBE823-0C98-473E-BCB7-7D0F1B992A76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{593C7570-EFB3-4AA4-972B-AC2CB48F4441}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{593C7570-EFB3-4AA4-972B-AC2CB48F4441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archivos", "Archivos\Archivos.csproj", "{625A6D91-7541-4557-BCC3-BA38D3317F0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{593C7570-EFB3-4AA4-972B-AC2CB48F4441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{593C7570-EFB3-4AA4-972B-AC2CB48F4441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{593C7570-EFB3-4AA4-972B-AC2CB48F4441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625A6D91-7541-4557-BCC3-BA38D3317F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625A6D91-7541-4557-BCC3-BA38D3317F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625A6D91-7541-4557-BCC3-BA38D3317F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625A6D91-7541-4557-BCC3-BA38D3317F0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

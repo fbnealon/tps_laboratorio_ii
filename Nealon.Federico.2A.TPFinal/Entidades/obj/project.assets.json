@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Archivos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Archivos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Archivos.dll": {}
+        }
+      },
       "Excepciones/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -15,6 +28,11 @@
     }
   },
   "libraries": {
+    "Archivos/1.0.0": {
+      "type": "project",
+      "path": "../Archivos/Archivos.csproj",
+      "msbuildProject": "../Archivos/Archivos.csproj"
+    },
     "Excepciones/1.0.0": {
       "type": "project",
       "path": "../Excepciones/Excepciones.csproj",
@@ -23,6 +41,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Archivos >= 1.0.0",
       "Excepciones >= 1.0.0"
     ]
   },
@@ -53,6 +72,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\Nealon.Federico.2A.TPFinal\\Archivos\\Archivos.csproj": {
+              "projectPath": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\Nealon.Federico.2A.TPFinal\\Archivos\\Archivos.csproj"
+            },
             "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\Nealon.Federico.2A.TPFinal\\Excepciones\\Excepciones.csproj": {
               "projectPath": "C:\\Users\\Federico\\source\\repos\\tps_laboratorio_ii\\Nealon.Federico.2A.TPFinal\\Excepciones\\Excepciones.csproj"
             }

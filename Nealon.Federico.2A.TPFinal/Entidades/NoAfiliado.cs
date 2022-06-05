@@ -20,6 +20,11 @@ namespace Entidades
             }
         }
 
+        public NoAfiliado()
+        {
+
+        }
+
         public string Dni { get => this.dni; set => this.dni = value; }
 
         public override string ToString()
@@ -43,6 +48,28 @@ namespace Entidades
                 }
             }
             return rta;
+        }
+        public static bool operator ==(NoAfiliado n1, NoAfiliado n2)
+        {
+            bool rta = false;
+            if (n1 is not null && n2 is not null)
+            {
+                if (n1.Apellido == n2.Apellido && n1.dni == n2.dni)
+                {
+                    rta = true;
+                }
+            }
+            return rta;
+        }
+        
+        public static bool operator !=(NoAfiliado n1, NoAfiliado n2)
+        {
+            return !(n1 == n2);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is NoAfiliado noAfiliado && this == noAfiliado;
         }
     }
 }

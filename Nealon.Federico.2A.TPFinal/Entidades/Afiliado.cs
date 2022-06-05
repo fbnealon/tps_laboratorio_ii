@@ -21,6 +21,11 @@ namespace Entidades
             }
         }
 
+        public Afiliado()
+        {
+
+        }
+
         public string NroAfiliado { get => this.nroAfiliado; set => this.nroAfiliado = value; }
 
         public override string ToString()
@@ -30,6 +35,29 @@ namespace Entidades
             sb.AppendLine($"Numero de afiliado: {this.nroAfiliado}");
 
             return sb.ToString();
+        }
+
+        public static bool operator ==(Afiliado a1, Afiliado a2)
+        {
+            bool rta = false;
+            if (a1 is not null && a2 is not null)
+            {
+                if (a1.Apellido == a2.Apellido && a1.nroAfiliado == a2.nroAfiliado)
+                {
+                    rta = true;
+                }
+            }
+            return rta;
+        }
+
+        public static bool operator !=(Afiliado a1, Afiliado a2)
+        {
+            return !(a1 == a2);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Afiliado afiliado && this == afiliado;
         }
     }
 }
