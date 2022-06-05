@@ -25,7 +25,6 @@ namespace Entidades
         {
 
         }
-
         public string NroAfiliado { get => this.nroAfiliado; set => this.nroAfiliado = value; }
 
         public override string ToString()

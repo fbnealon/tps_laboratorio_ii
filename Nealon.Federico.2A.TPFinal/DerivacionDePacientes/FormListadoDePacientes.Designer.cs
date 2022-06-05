@@ -32,8 +32,6 @@ namespace DerivacionDePacientes
             this.dataGridAfiliados = new System.Windows.Forms.DataGridView();
             this.btnSerializarAfiliadosXML = new System.Windows.Forms.Button();
             this.btnDeserializarAfiliadosXML = new System.Windows.Forms.Button();
-            this.btnSerializarPacientesJSON = new System.Windows.Forms.Button();
-            this.btnDeserializarPacientesJSON = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAfiliados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +52,7 @@ namespace DerivacionDePacientes
             // 
             this.btnSerializarAfiliadosXML.Location = new System.Drawing.Point(12, 444);
             this.btnSerializarAfiliadosXML.Name = "btnSerializarAfiliadosXML";
-            this.btnSerializarAfiliadosXML.Size = new System.Drawing.Size(174, 35);
+            this.btnSerializarAfiliadosXML.Size = new System.Drawing.Size(273, 79);
             this.btnSerializarAfiliadosXML.TabIndex = 1;
             this.btnSerializarAfiliadosXML.Text = "Serializar Pacientes XML";
             this.btnSerializarAfiliadosXML.UseVisualStyleBackColor = true;
@@ -62,41 +60,19 @@ namespace DerivacionDePacientes
             // 
             // btnDeserializarAfiliadosXML
             // 
-            this.btnDeserializarAfiliadosXML.Location = new System.Drawing.Point(12, 488);
+            this.btnDeserializarAfiliadosXML.Location = new System.Drawing.Point(384, 444);
             this.btnDeserializarAfiliadosXML.Name = "btnDeserializarAfiliadosXML";
-            this.btnDeserializarAfiliadosXML.Size = new System.Drawing.Size(174, 35);
+            this.btnDeserializarAfiliadosXML.Size = new System.Drawing.Size(273, 79);
             this.btnDeserializarAfiliadosXML.TabIndex = 3;
             this.btnDeserializarAfiliadosXML.Text = "Deserializar Pacientes XML";
             this.btnDeserializarAfiliadosXML.UseVisualStyleBackColor = true;
             this.btnDeserializarAfiliadosXML.Click += new System.EventHandler(this.btnDeserializarPacientesXML_Click);
-            // 
-            // btnSerializarPacientesJSON
-            // 
-            this.btnSerializarPacientesJSON.Location = new System.Drawing.Point(192, 444);
-            this.btnSerializarPacientesJSON.Name = "btnSerializarPacientesJSON";
-            this.btnSerializarPacientesJSON.Size = new System.Drawing.Size(174, 35);
-            this.btnSerializarPacientesJSON.TabIndex = 4;
-            this.btnSerializarPacientesJSON.Text = "Serializar Pacientes JSON";
-            this.btnSerializarPacientesJSON.UseVisualStyleBackColor = true;
-            this.btnSerializarPacientesJSON.Click += new System.EventHandler(this.btnSerializarPacientesJSON_Click);
-            // 
-            // btnDeserializarPacientesJSON
-            // 
-            this.btnDeserializarPacientesJSON.Location = new System.Drawing.Point(192, 488);
-            this.btnDeserializarPacientesJSON.Name = "btnDeserializarPacientesJSON";
-            this.btnDeserializarPacientesJSON.Size = new System.Drawing.Size(174, 35);
-            this.btnDeserializarPacientesJSON.TabIndex = 5;
-            this.btnDeserializarPacientesJSON.Text = "Deserializar Pacientes JSON";
-            this.btnDeserializarPacientesJSON.UseVisualStyleBackColor = true;
-            this.btnDeserializarPacientesJSON.Click += new System.EventHandler(this.btnDeserializarPacientesJSON_Click);
             // 
             // FormListadoDePacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 535);
-            this.Controls.Add(this.btnDeserializarPacientesJSON);
-            this.Controls.Add(this.btnSerializarPacientesJSON);
             this.Controls.Add(this.btnDeserializarAfiliadosXML);
             this.Controls.Add(this.btnSerializarAfiliadosXML);
             this.Controls.Add(this.dataGridAfiliados);
@@ -115,7 +91,5 @@ namespace DerivacionDePacientes
         private System.Windows.Forms.DataGridView dataGridAfiliados;
         private System.Windows.Forms.Button btnSerializarAfiliadosXML;
         private System.Windows.Forms.Button btnDeserializarAfiliadosXML;
-        private System.Windows.Forms.Button btnSerializarPacientesJSON;
-        private System.Windows.Forms.Button btnDeserializarPacientesJSON;
     }
 }

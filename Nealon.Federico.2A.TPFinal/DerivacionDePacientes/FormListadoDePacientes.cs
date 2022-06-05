@@ -105,43 +105,5 @@ namespace DerivacionDePacientes
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void btnSerializarPacientesJSON_Click(object sender, EventArgs e)
-        {
-            if (this.pacientes.Listado.Count == 0)
-            {
-                MessageBox.Show("No se serializará un archivo vacío", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                Pacientes<Persona> aux = new Pacientes<Persona>();
-                foreach (Persona item in this.pacientes.Listado)
-                {
-                    aux += item;
-                }
-                if (Pacientes<Persona>.GuardarJson(AppDomain.CurrentDomain.BaseDirectory, "listadoPacientes.json", aux))
-                {
-                    MessageBox.Show("Archivo serializado");
-                }
-            }
-        }
-
-        private void btnDeserializarPacientesJSON_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Pacientes<Persona> aux = new Pacientes<Persona>();
-                Pacientes<Persona>.LeerJson(AppDomain.CurrentDomain.BaseDirectory, "listadoPacientes.json", out aux);
-                foreach (Persona item in aux.Listado)
-                {
-                    this.pacientes += item;
-                }
-                this.DialogResult = DialogResult.OK;
-            }
-            catch (ArchivosException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
     }
 }
