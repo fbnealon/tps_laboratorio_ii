@@ -18,7 +18,14 @@ namespace DerivacionDePacientes
         {
             InitializeComponent();
             this.pacientes = new Pacientes<Persona>();
-            SerializarPacientes();
+            try
+            {
+                SerializarPacientes();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No hay archivo cargado");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
