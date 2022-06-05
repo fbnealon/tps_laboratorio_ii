@@ -126,6 +126,11 @@ namespace DerivacionDePacientes
             // numEdad
             // 
             this.numEdad.Location = new System.Drawing.Point(23, 115);
+            this.numEdad.Maximum = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
             this.numEdad.Name = "numEdad";
             this.numEdad.Size = new System.Drawing.Size(120, 23);
             this.numEdad.TabIndex = 7;

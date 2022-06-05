@@ -23,7 +23,10 @@ namespace Entidades
 
         public static Pacientes<T> operator +(Pacientes<T> pacientes, T persona)
         {
-            pacientes.listadoDePacientes.Add(persona);
+            if (pacientes != persona)
+            {
+                pacientes.listadoDePacientes.Add(persona);
+            }
             return pacientes;
         }
 
@@ -54,6 +57,23 @@ namespace Entidades
         {
             bool rta = false;
             SerializacionXml<Pacientes<T>> archivo = new SerializacionXml<Pacientes<T>>();
+            rta = archivo.Leer(rutaArchivo, nombreDeArchivo, out pacientes);
+            return rta;
+        }
+
+        public static bool GuardarJson(string rutaArchivo, string nombreDeArchivo, Pacientes<T> pacientes)
+        {
+            bool rta = false;
+            SerializacionJson<Pacientes<T>> archivo = new SerializacionJson<Pacientes<T>>();
+            rta = archivo.Guardar(rutaArchivo, nombreDeArchivo, pacientes);
+
+            return rta;
+        }
+
+        public static bool LeerJson(string rutaArchivo, string nombreDeArchivo, out Pacientes<T> pacientes)
+        {
+            bool rta = false;
+            SerializacionJson<Pacientes<T>> archivo = new SerializacionJson<Pacientes<T>>();
             rta = archivo.Leer(rutaArchivo, nombreDeArchivo, out pacientes);
             return rta;
         }

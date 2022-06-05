@@ -1,0 +1,32 @@
+{
+  "Listado": [
+    {
+      "Id": 1,
+      "Nombre": "Federico",
+      "Apellido": "Nealon",
+      "Edad": 28,
+      "Especialidad": 0
+    },
+    {
+      "Id": 2,
+      "Nombre": "Federico",
+      "Apellido": "Brian",
+      "Edad": 29,
+      "Especialidad": 0
+    },
+    {
+      "Id": 3,
+      "Nombre": "Nico",
+      "Apellido": "Lino",
+      "Edad": 56,
+      "Especialidad": 4
+    },
+    {
+      "Id": 4,
+      "Nombre": "Alejandra",
+      "Apellido": "Campos",
+      "Edad": 14,
+      "Especialidad": 5
+    }
+  ]
+}

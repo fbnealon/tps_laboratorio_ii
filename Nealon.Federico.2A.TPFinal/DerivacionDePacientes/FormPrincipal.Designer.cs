@@ -29,13 +29,14 @@ namespace DerivacionDePacientes
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.btnAltaPaciente = new System.Windows.Forms.Button();
             this.btnListadoPacientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAltaPaciente
             // 
-            this.btnAltaPaciente.Location = new System.Drawing.Point(12, 12);
+            this.btnAltaPaciente.Location = new System.Drawing.Point(138, 44);
             this.btnAltaPaciente.Name = "btnAltaPaciente";
             this.btnAltaPaciente.Size = new System.Drawing.Size(288, 94);
             this.btnAltaPaciente.TabIndex = 0;
@@ -45,7 +46,7 @@ namespace DerivacionDePacientes
             // 
             // btnListadoPacientes
             // 
-            this.btnListadoPacientes.Location = new System.Drawing.Point(12, 112);
+            this.btnListadoPacientes.Location = new System.Drawing.Point(138, 187);
             this.btnListadoPacientes.Name = "btnListadoPacientes";
             this.btnListadoPacientes.Size = new System.Drawing.Size(288, 94);
             this.btnListadoPacientes.TabIndex = 1;
@@ -57,9 +58,12 @@ namespace DerivacionDePacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(596, 344);
             this.Controls.Add(this.btnListadoPacientes);
             this.Controls.Add(this.btnAltaPaciente);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";

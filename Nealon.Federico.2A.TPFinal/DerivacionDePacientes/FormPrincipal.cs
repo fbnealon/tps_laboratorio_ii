@@ -18,11 +18,12 @@ namespace DerivacionDePacientes
         {
             InitializeComponent();
             this.pacientes = new Pacientes<Persona>();
+            SerializarPacientes();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "Registro de pacientes";
+            this.Text = "Registro de turnos";
         }
         private void btnAltaPaciente_Click(object sender, EventArgs e)
         {
@@ -41,6 +42,24 @@ namespace DerivacionDePacientes
             if (formListadoDePacientes.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show("Los pacientes fueron serializados correctamente");
+            }
+        }
+
+        private void SerializarPacientes()
+        {
+            try
+            {
+                Pacientes<Persona> aux = new Pacientes<Persona>();
+                Pacientes<Persona>.LeerXml(AppDomain.CurrentDomain.BaseDirectory, "listadoPacientes.xml", out aux);
+                foreach (Persona item in aux.Listado)
+                {
+                    this.pacientes += item;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Excepciones.ArchivosException("Error al intentar cargar la lista preexistente", ex.InnerException);
             }
         }
 

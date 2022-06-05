@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
 using Excepciones;
-
 
 namespace Archivos
 {
-    public class SerializacionXml<T> : IArchivo<T>
+    public class SerializacionJson<T> : IArchivo<T>
     {
         public bool Guardar(string rutaDeArchivo, string nombreDeArchivo, T datos)
         {
@@ -20,13 +18,18 @@ namespace Archivos
             {
                 using (StreamWriter streamWriter = new StreamWriter(rutaDeArchivo + nombreDeArchivo))
                 {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                    xmlSerializer.Serialize(streamWriter, datos);
+                    JsonSerializerOptions opciones = new JsonSerializerOptions();
+                    opciones.WriteIndented = true;
+                    
+
+                    string jsonString = JsonSerializer.Serialize(datos, datos.GetType(), opciones);
+                    streamWriter.Write(jsonString);
                     rta = true;
                 }
             }
             catch (Exception ex)
             {
+
                 throw new ArchivosException("No se pudo guardar el archivo\n", ex);
             }
             return rta;
@@ -39,8 +42,10 @@ namespace Archivos
             {
                 using (StreamReader streamReader = new StreamReader(rutaDeArchivo + nombreDeArchivo))
                 {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                    datos = (T)xmlSerializer.Deserialize(streamReader);
+                    
+                    JsonSerializerOptions opciones = new JsonSerializerOptions();
+                    opciones.WriteIndented = true;
+                    datos = JsonSerializer.Deserialize<T>(streamReader.ReadToEnd(), opciones);
                     rta = true;
                 }
             }

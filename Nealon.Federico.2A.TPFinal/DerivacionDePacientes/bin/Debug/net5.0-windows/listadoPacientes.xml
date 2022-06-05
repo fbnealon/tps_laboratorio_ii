@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PacientesOfPersona xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Listado>
+    <Persona xsi:type="Afiliado">
+      <Id>1</Id>
+      <Nombre>Federico</Nombre>
+      <Apellido>Nealon</Apellido>
+      <Edad>28</Edad>
+      <Especialidad>Cardiología</Especialidad>
+      <NroAfiliado>A0001</NroAfiliado>
+    </Persona>
+    <Persona xsi:type="Afiliado">
+      <Id>2</Id>
+      <Nombre>Federico</Nombre>
+      <Apellido>Brian</Apellido>
+      <Edad>29</Edad>
+      <Especialidad>Cardiología</Especialidad>
+      <NroAfiliado>A0002</NroAfiliado>
+    </Persona>
+    <Persona xsi:type="NoAfiliado">
+      <Id>3</Id>
+      <Nombre>Nico</Nombre>
+      <Apellido>Lino</Apellido>
+      <Edad>56</Edad>
+      <Especialidad>Neurología</Especialidad>
+      <Dni>20987654</Dni>
+    </Persona>
+    <Persona xsi:type="NoAfiliado">
+      <Id>4</Id>
+      <Nombre>Alejandra</Nombre>
+      <Apellido>Campos</Apellido>
+      <Edad>14</Edad>
+      <Especialidad>Pediatría</Especialidad>
+      <Dni>49123456</Dni>
+    </Persona>
+  </Listado>
+</PacientesOfPersona>
