@@ -30,14 +30,7 @@ namespace DerivacionDePacientes
 
             if (formAltaAfiliado.ShowDialog() == DialogResult.OK)
             {
-                if (formAltaAfiliado.PacienteAfiliado is not null)
-                {
-                    this.pacientes += formAltaAfiliado.PacienteAfiliado;
-                }
-                else
-                {
-                    this.pacientes += formAltaAfiliado.PacienteNoAfiliado;
-                }
+                this.pacientes += formAltaAfiliado.Paciente;
             }
         }
 

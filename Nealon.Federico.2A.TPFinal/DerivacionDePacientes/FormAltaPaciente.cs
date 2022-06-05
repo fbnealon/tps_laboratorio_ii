@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
@@ -14,8 +15,7 @@ namespace DerivacionDePacientes
 {
     public partial class FormAltaPaciente : Form
     {
-        private Afiliado paciente_afiliado;
-        private NoAfiliado paciente_noAfiliado;
+        private Persona paciente;
         public FormAltaPaciente()
         {
             InitializeComponent();
@@ -23,8 +23,7 @@ namespace DerivacionDePacientes
 
         }
 
-        public Afiliado PacienteAfiliado { get => this.paciente_afiliado; set => this.paciente_afiliado = value; }
-        public NoAfiliado PacienteNoAfiliado { get => this.paciente_noAfiliado; set => this.paciente_noAfiliado = value; }
+        public Persona Paciente { get => this.paciente; set => this.paciente = value; }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -33,16 +32,18 @@ namespace DerivacionDePacientes
                 ValidarCampoVacio(this.txtNombre.Text);
                 ValidarCampoVacio(this.txtApellido.Text);
                 ValidarCampoVacio(this.txtDniOAfiliado.Text);
+                ValidarCampoSinNumeros(this.txtNombre.Text);
+                ValidarCampoSinNumeros(this.txtApellido.Text);
 
                 if (this.checkAfiliado.Checked)
                 {
-                    this.paciente_afiliado = new Afiliado(1, this.txtNombre.Text, this.txtApellido.Text, (int)numEdad.Value, this.txtDniOAfiliado.Text, (EEspecialidades)this.cmbTipoTurno.SelectedItem);
+                    this.paciente = new Afiliado(1, this.txtNombre.Text, this.txtApellido.Text, (int)numEdad.Value, this.txtDniOAfiliado.Text, (EEspecialidades)this.cmbTipoTurno.SelectedItem);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
                     ValidarDni(this.txtDniOAfiliado.Text);
-                    this.paciente_noAfiliado = new NoAfiliado(1, this.txtNombre.Text, this.txtApellido.Text, (int)numEdad.Value, this.txtDniOAfiliado.Text, (EEspecialidades)this.cmbTipoTurno.SelectedItem);
+                    this.paciente = new NoAfiliado(1, this.txtNombre.Text, this.txtApellido.Text, (int)numEdad.Value, this.txtDniOAfiliado.Text, (EEspecialidades)this.cmbTipoTurno.SelectedItem);
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -55,6 +56,10 @@ namespace DerivacionDePacientes
                 MessageBox.Show(ex.Message);
             }
             catch (CampoVacioException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (CampoConNumerosException ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -108,7 +113,7 @@ namespace DerivacionDePacientes
             {
                 if (c < '0' || c > '9' || dni.Length!=8)
                 {
-                    throw new DniInvalidoException("DNI se conforma de solo 8 numeros");
+                    throw new DniInvalidoException("DNI se conforma de solo 8 numeros.");
                 }
             }
         }
@@ -116,7 +121,15 @@ namespace DerivacionDePacientes
         {
             if (dato == "")
             {
-                throw new CampoVacioException("No puede quedar un campo vacío");
+                throw new CampoVacioException("No puede quedar un campo vacío.");
+            }
+        }
+
+        public void ValidarCampoSinNumeros(string dato)
+        {
+            if (!Regex.IsMatch(dato, @"^[a-zA-Z]+$"))
+            {
+                throw new CampoConNumerosException("Nombre y apellido sólo debe contener letras.");
             }
         }
     }
