@@ -13,6 +13,13 @@ namespace Archivos
 {
     public class SerializacionXml<T> : IArchivo<T>
     {
+        /// <summary>
+        /// Retorna true si los datos pudieron ser serializados correctamente.
+        /// </summary>
+        /// <param name="rutaDeArchivo"></param>
+        /// <param name="nombreDeArchivo"></param>
+        /// <param name="datos"></param>
+        /// <returns></returns>
         public bool Guardar(string rutaDeArchivo, string nombreDeArchivo, T datos)
         {
             bool rta = false;
@@ -32,6 +39,13 @@ namespace Archivos
             return rta;
         }
 
+        /// <summary>
+        /// Retorna true si los datos pudieron ser deserializados correctamente.
+        /// </summary>
+        /// <param name="rutaDeArchivo"></param>
+        /// <param name="nombreDeArchivo"></param>
+        /// <param name="datos"></param>
+        /// <returns></returns>
         public bool Leer(string rutaDeArchivo, string nombreDeArchivo, out T datos)
         {
             bool rta = false;

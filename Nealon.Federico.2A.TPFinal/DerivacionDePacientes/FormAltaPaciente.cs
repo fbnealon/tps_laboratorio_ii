@@ -107,6 +107,10 @@ namespace DerivacionDePacientes
             this.Close();
         }
 
+        /// <summary>
+        /// Lanza una excepción en caso de que el dni no contenga 8 numeros.
+        /// </summary>
+        /// <param name="dni"></param>
         public void ValidarDni(string dni)
         {
             foreach (char c in dni)
@@ -117,6 +121,10 @@ namespace DerivacionDePacientes
                 }
             }
         }
+        /// <summary>
+        /// Lanza una excepción en caso de que un dato quede vacío.
+        /// </summary>
+        /// <param name="dato"></param>
         public void ValidarCampoVacio(string dato)
         {
             if (dato == "")
@@ -125,6 +133,10 @@ namespace DerivacionDePacientes
             }
         }
 
+        /// <summary>
+        /// Lanza una excepcion en caso de que un dato tenga algún caracter más que una letra.
+        /// </summary>
+        /// <param name="dato"></param>
         public void ValidarCampoSinNumeros(string dato)
         {
             if (!Regex.IsMatch(dato, @"^[a-zA-Z]+$"))
