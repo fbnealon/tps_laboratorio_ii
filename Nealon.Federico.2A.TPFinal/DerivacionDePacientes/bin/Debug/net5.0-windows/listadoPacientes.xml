@@ -33,5 +33,13 @@
       <Especialidad>Pediatría</Especialidad>
       <Dni>49123456</Dni>
     </Persona>
+    <Persona xsi:type="NoAfiliado">
+      <Id>5</Id>
+      <Nombre>Marcia</Nombre>
+      <Apellido>Gonzalez</Apellido>
+      <Edad>34</Edad>
+      <Especialidad>Clínico</Especialidad>
+      <Dni>33097123</Dni>
+    </Persona>
   </Listado>
 </PacientesOfPersona>

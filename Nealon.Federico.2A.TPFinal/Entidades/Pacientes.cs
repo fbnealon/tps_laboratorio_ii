@@ -61,21 +61,19 @@ namespace Entidades
             return rta;
         }
 
-        public static bool GuardarJson(string rutaArchivo, string nombreDeArchivo, Pacientes<T> pacientes)
+        public static bool GuardarTexto(string rutaArchivo, string nombreDeArchivo, Pacientes<T> pacientes)
         {
             bool rta = false;
-            SerializacionJson<Pacientes<T>> archivo = new SerializacionJson<Pacientes<T>>();
+            Texto<Pacientes<T>> archivo = new Texto<Pacientes<T>>();
             rta = archivo.Guardar(rutaArchivo, nombreDeArchivo, pacientes);
 
             return rta;
         }
 
-        public static bool LeerJson(string rutaArchivo, string nombreDeArchivo, out Pacientes<T> pacientes)
+        public static string LeerTexto(string rutaArchivo, string nombreDeArchivo)
         {
-            bool rta = false;
-            SerializacionJson<Pacientes<T>> archivo = new SerializacionJson<Pacientes<T>>();
-            rta = archivo.Leer(rutaArchivo, nombreDeArchivo, out pacientes);
-            return rta;
+            Texto<Pacientes<T>> archivo = new Texto<Pacientes<T>>();
+            return archivo.Leer(rutaArchivo, nombreDeArchivo);
         }
 
         public static bool operator ==(Pacientes<T> pacientes, T persona)

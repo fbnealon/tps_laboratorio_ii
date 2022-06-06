@@ -105,5 +105,38 @@ namespace DerivacionDePacientes
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnGuardarArchivoDeTexto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Pacientes<Persona> aux = new Pacientes<Persona>();
+                foreach (Persona item in this.pacientes.Listado)
+                {
+                    aux += item;
+                }
+                if (Pacientes<Persona>.GuardarTexto(AppDomain.CurrentDomain.BaseDirectory, "listadoPacientes.txt", aux))
+                {
+                    MessageBox.Show("Archivo guardado");
+                }
+            }
+            catch (ArchivosException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLeerArchivoDeTexto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormLecturaArchivoDeTexto texto = new FormLecturaArchivoDeTexto(Pacientes<Persona>.LeerTexto(AppDomain.CurrentDomain.BaseDirectory, "listadoPacientes.txt"));
+                texto.ShowDialog();
+            }
+            catch (ArchivosException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

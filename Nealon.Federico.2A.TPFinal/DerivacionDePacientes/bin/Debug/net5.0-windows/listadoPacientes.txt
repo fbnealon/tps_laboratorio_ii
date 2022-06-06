@@ -1,0 +1,38 @@
+﻿Listado de pacientes 
+
+ID: 1
+Nombre: Federico
+Apellido: Nealon
+Edad: 28
+Especialidad: Cardiología
+Numero de afiliado: A0001
+
+ID: 2
+Nombre: Federico
+Apellido: Brian
+Edad: 29
+Especialidad: Cardiología
+Numero de afiliado: A0002
+
+ID: 3
+Nombre: Nico
+Apellido: Lino
+Edad: 56
+Especialidad: Neurología
+DNI: 20987654
+
+ID: 4
+Nombre: Alejandra
+Apellido: Campos
+Edad: 14
+Especialidad: Pediatría
+DNI: 49123456
+
+ID: 5
+Nombre: Marcia
+Apellido: Gonzalez
+Edad: 34
+Especialidad: Clínico
+DNI: 33097123
+
+

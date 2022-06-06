@@ -26,3 +26,4 @@ C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\Der
 C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\DerivacionDePacientes\obj\Debug\net5.0-windows\DerivacionDePacientes.Properties.Resources.resources
 C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\DerivacionDePacientes\bin\Debug\net5.0-windows\Archivos.dll
 C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\DerivacionDePacientes\bin\Debug\net5.0-windows\Archivos.pdb
+C:\Users\Federico\source\repos\tps_laboratorio_ii\Nealon.Federico.2A.TPFinal\DerivacionDePacientes\obj\Debug\net5.0-windows\DerivacionDePacientes.FormLecturaArchivoDeTexto.resources
