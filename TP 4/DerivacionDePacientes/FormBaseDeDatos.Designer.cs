@@ -33,6 +33,7 @@ namespace DerivacionDePacientes
             this.btnModificarBD = new System.Windows.Forms.Button();
             this.btnAgregarBD = new System.Windows.Forms.Button();
             this.btnEliminarBD = new System.Windows.Forms.Button();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstBoxPacientesBD
@@ -56,7 +57,7 @@ namespace DerivacionDePacientes
             // 
             // btnAgregarBD
             // 
-            this.btnAgregarBD.Location = new System.Drawing.Point(325, 395);
+            this.btnAgregarBD.Location = new System.Drawing.Point(170, 395);
             this.btnAgregarBD.Name = "btnAgregarBD";
             this.btnAgregarBD.Size = new System.Drawing.Size(152, 60);
             this.btnAgregarBD.TabIndex = 2;
@@ -66,7 +67,7 @@ namespace DerivacionDePacientes
             // 
             // btnEliminarBD
             // 
-            this.btnEliminarBD.Location = new System.Drawing.Point(652, 395);
+            this.btnEliminarBD.Location = new System.Drawing.Point(328, 395);
             this.btnEliminarBD.Name = "btnEliminarBD";
             this.btnEliminarBD.Size = new System.Drawing.Size(152, 60);
             this.btnEliminarBD.TabIndex = 3;
@@ -74,11 +75,22 @@ namespace DerivacionDePacientes
             this.btnEliminarBD.UseVisualStyleBackColor = true;
             this.btnEliminarBD.Click += new System.EventHandler(this.btnEliminarBD_Click);
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFecha.Location = new System.Drawing.Point(486, 434);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(67, 21);
+            this.lblFecha.TabIndex = 4;
+            this.lblFecha.Text = "lblFecha";
+            // 
             // FormBaseDeDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 477);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.btnEliminarBD);
             this.Controls.Add(this.btnAgregarBD);
             this.Controls.Add(this.btnModificarBD);
@@ -87,6 +99,7 @@ namespace DerivacionDePacientes
             this.Text = "FormBaseDeDatos";
             this.Load += new System.EventHandler(this.FormBaseDeDatos_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,5 +109,6 @@ namespace DerivacionDePacientes
         private System.Windows.Forms.Button btnModificarBD;
         private System.Windows.Forms.Button btnAgregarBD;
         private System.Windows.Forms.Button btnEliminarBD;
+        private System.Windows.Forms.Label lblFecha;
     }
 }

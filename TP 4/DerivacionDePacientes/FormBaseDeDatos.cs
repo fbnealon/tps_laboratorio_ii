@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,13 +17,30 @@ namespace DerivacionDePacientes
         List<Persona> pacientes;
         public FormBaseDeDatos(List<Persona> pacientes)
         {
-            this.pacientes = pacientes;
             InitializeComponent();
+            this.pacientes = pacientes;
+            this.Text = "Base de datos";
         }
 
         private void FormBaseDeDatos_Load(object sender, EventArgs e)
         {
             this.CargarListadoPacientesBD();
+            Task hilo = Task.Run(() => { while (true)
+                {
+                    if (this.lblFecha.InvokeRequired)
+                    {
+                        this.lblFecha.BeginInvoke((MethodInvoker)delegate ()
+                        {
+                            this.lblFecha.Text = DateTime.Now.ToString();
+                        });
+                    }
+                    else
+                    {
+                        this.lblFecha.Text = DateTime.Now.ToString();
+                    }
+                    Thread.Sleep(1000);
+                }
+});
         }
 
         private void CargarListadoPacientesBD()
@@ -40,7 +58,7 @@ namespace DerivacionDePacientes
             {
                 DAO dao = new DAO();
 
-                dao.PacienteYConsultaRepetidos += Manejador_PacienteYConsultaRepetidos;
+                dao.ConsultaOIdRepetido += Manejador_ConsultaOIdRepetidos;
 
                 if (dao.Agregar(altaPaciente.Paciente))
                 {
@@ -49,20 +67,20 @@ namespace DerivacionDePacientes
                 }
                 else
                 {
-                    MessageBox.Show("No se agregó el paciente a la base de datos");
+                    MessageBox.Show("No se agregó la consulta a la base de datos");
                 }
 
-                dao.PacienteYConsultaRepetidos -= Manejador_PacienteYConsultaRepetidos;
+                dao.ConsultaOIdRepetido -= Manejador_ConsultaOIdRepetidos;
             }
         }
-        private void Manejador_PacienteYConsultaRepetidos(object sender, EventArgs e)
+        private void Manejador_ConsultaOIdRepetidos(object sender, EventArgs e)
         {
 
             List<Persona> lista = (List<Persona>)sender;
 
-            foreach (var item in lista)
+            foreach (Persona item in lista)
             {
-                MessageBox.Show(item.ToString(), "Persona y consulta repetidas" + DateTime.Now);
+                MessageBox.Show(item.ToString(), "Consulta o ID repetido " + DateTime.Now);
             }
 
         }

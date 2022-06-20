@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public delegate void DelegadoPacienteYConsultaRepetidos(object sender, EventArgs e);
+    public delegate void DelegadoConsultaOIdRepetido(object sender, EventArgs e);
+
     public class DAO
     {
         private static SqlConnection connection;
         private static SqlCommand command;
         private static string connectionString;
 
-        public event DelegadoPacienteYConsultaRepetidos PacienteYConsultaRepetidos;
+        public event DelegadoConsultaOIdRepetido ConsultaOIdRepetido;
 
         static DAO()
         {
@@ -56,7 +57,7 @@ namespace Entidades
             return pacientes;
         }
 
-        public static List<Persona> ObtenerPacientes(string especialidad)
+        public static List<Persona> ObtenerPacientes(int id)
         {
             List<Persona> pacientes = new List<Persona>();
 
@@ -64,8 +65,8 @@ namespace Entidades
             {
                 command.Parameters.Clear();
                 connection.Open();
-                command.Parameters.AddWithValue("@especialidad", especialidad);
-                command.CommandText = "SELECT * FROM pacientes WHERE especialidad = @especialidad";
+                command.Parameters.AddWithValue("@id", id);
+                command.CommandText = "SELECT * FROM pacientes WHERE id = @id";
                 SqlDataReader sqlDataReader = command.ExecuteReader();
 
                 while (sqlDataReader.Read())
@@ -89,22 +90,75 @@ namespace Entidades
             return pacientes;
         }
 
+        public static List<Persona> ObtenerPacientes(string nombre, string apellido, string especialidad)
+        {
+            List<Persona> pacientes = new List<Persona>();
+
+            try
+            {
+                command.Parameters.Clear();
+                connection.Open();
+                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@apellido", apellido);
+                command.Parameters.AddWithValue("@especialidad", especialidad);
+                command.CommandText = "SELECT * FROM pacientes WHERE nombre = @nombre AND apellido = @apellido AND especialidad = @especialidad";
+                SqlDataReader sqlDataReader = command.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    pacientes.Add(new Persona((int)sqlDataReader["id"],
+                                                sqlDataReader["nombre"].ToString(),
+                                                sqlDataReader["apellido"].ToString(),
+                                                (int)sqlDataReader["edad"],
+                                                sqlDataReader["especialidad"].ToString()));
+                }
+                sqlDataReader.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return pacientes;
+        }
+
+
+
         public bool Agregar(Persona persona)
         {
             bool rta = false;
             try
             {
-                command.Parameters.Clear();
-                connection.Open();
-                command.CommandText = "INSERT INTO pacientes (id, nombre, apellido, edad, especialidad) VALUES (@id, @nombre, @apellido, @edad, @especialidad)";
-                command.Parameters.AddWithValue("@id", persona.Id);
-                command.Parameters.AddWithValue("@nombre", persona.Nombre);
-                command.Parameters.AddWithValue("@apellido", persona.Apellido);
-                command.Parameters.AddWithValue("@edad", persona.Edad);
-                command.Parameters.AddWithValue("@especialidad", persona.EspecialidadString);
-                rta = true;
-                command.ExecuteNonQuery();
-
+                List<Persona> PacienteYConsultaRepetidos = DAO.ObtenerPacientes(persona.Nombre, persona.Apellido, persona.EspecialidadString);
+                PacienteYConsultaRepetidos.Add(persona);
+                List<Persona> IdRepetido = DAO.ObtenerPacientes(persona.Id);
+                IdRepetido.Add(persona);
+                if (PacienteYConsultaRepetidos is not null && PacienteYConsultaRepetidos.Count > 1)
+                {
+                    this.ConsultaOIdRepetido.Invoke(PacienteYConsultaRepetidos, EventArgs.Empty);
+                    rta = false;
+                }
+                else if (IdRepetido is not null && IdRepetido.Count > 1)
+                {
+                    this.ConsultaOIdRepetido.Invoke(IdRepetido, EventArgs.Empty);
+                    rta = false;
+                }
+                else
+                {
+                    command.Parameters.Clear();
+                    connection.Open();
+                    command.CommandText = "INSERT INTO pacientes (id, nombre, apellido, edad, especialidad) VALUES (@id, @nombre, @apellido, @edad, @especialidad)";
+                    command.Parameters.AddWithValue("@id", persona.Id);
+                    command.Parameters.AddWithValue("@nombre", persona.Nombre);
+                    command.Parameters.AddWithValue("@apellido", persona.Apellido);
+                    command.Parameters.AddWithValue("@edad", persona.Edad);
+                    command.Parameters.AddWithValue("@especialidad", persona.EspecialidadString);
+                    rta = true;
+                    command.ExecuteNonQuery();
+                }
             }
             catch (Exception)
             {
