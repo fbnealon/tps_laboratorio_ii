@@ -1,0 +1,1 @@
+No se puede probar la app. El script dice Productos en lugar de pacientes, por lo tanto falla la app. Revisar todo completamente antes de entregar un tp. Implementar task en alguna otra cosa mas util donde se vea mejor el concepto en lo posible.
