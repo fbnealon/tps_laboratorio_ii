@@ -44,7 +44,7 @@ namespace DerivacionDePacientes
                 }
 
             }
-            catch (DetalleVacioException ex)
+            catch (DetalleVacioException)
             {
                 MessageBox.Show("Por favor, anote los detalles de la consulta.");
             }

@@ -96,6 +96,7 @@ namespace DerivacionDePacientes
             this.Controls.Add(this.btnModificarBD);
             this.Controls.Add(this.lstBoxPacientesBD);
             this.Name = "FormBaseDeDatos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormBaseDeDatos";
             this.Load += new System.EventHandler(this.FormBaseDeDatos_Load);
             this.ResumeLayout(false);

@@ -49,6 +49,7 @@ namespace DerivacionDePacientes
             if (formListadoDePacientes.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show("Los pacientes fueron serializados correctamente");
+                this.pacientes = formListadoDePacientes.Pacientes;
             }
         }
 
@@ -72,9 +73,13 @@ namespace DerivacionDePacientes
 
         private void btnAccesoABaseDeDatos_Click(object sender, EventArgs e)
         {
-            FormBaseDeDatos formBD = new FormBaseDeDatos(this.pacientes.Listado);
+            FormBaseDeDatos formBD = new FormBaseDeDatos(this.pacientes);
             formBD.StartPosition = FormStartPosition.CenterParent;
             formBD.Show();
+            if (formBD.Disposing == true)
+            {
+                this.pacientes = formBD.Pacientes;
+            }
         }
     }
 }

@@ -26,9 +26,9 @@ namespace Entidades
             DAO.command.CommandType = System.Data.CommandType.Text;
         }
 
-        public static List<Persona> ObtenerPacientes()
+        public static Pacientes<Persona> ObtenerPacientes()
         {
-            List<Persona> pacientes = new List<Persona>();
+            Pacientes<Persona> pacientes = new Pacientes<Persona>();
 
             try
             {
@@ -38,7 +38,7 @@ namespace Entidades
 
                 while (sqlDataReader.Read())
                 {
-                    pacientes.Add(new Persona((int)sqlDataReader["id"],
+                    pacientes.Listado.Add(new Persona((int)sqlDataReader["id"],
                                                 sqlDataReader["nombre"].ToString(),
                                                 sqlDataReader["apellido"].ToString(),
                                                 (int)sqlDataReader["edad"],
@@ -57,9 +57,9 @@ namespace Entidades
             return pacientes;
         }
 
-        public static List<Persona> ObtenerPacientes(int id)
+        public static Pacientes<Persona> ObtenerPacientes(int id)
         {
-            List<Persona> pacientes = new List<Persona>();
+            Pacientes<Persona> pacientes = new Pacientes<Persona>();
 
             try
             {
@@ -71,7 +71,7 @@ namespace Entidades
 
                 while (sqlDataReader.Read())
                 {
-                    pacientes.Add(new Persona((int)sqlDataReader["id"],
+                    pacientes.Listado.Add(new Persona((int)sqlDataReader["id"],
                                                 sqlDataReader["nombre"].ToString(),
                                                 sqlDataReader["apellido"].ToString(),
                                                 (int)sqlDataReader["edad"],
@@ -90,9 +90,9 @@ namespace Entidades
             return pacientes;
         }
 
-        public static List<Persona> ObtenerPacientes(string nombre, string apellido, string especialidad)
+        public static Pacientes<Persona> ObtenerPacientes(string nombre, string apellido, string especialidad)
         {
-            List<Persona> pacientes = new List<Persona>();
+            Pacientes<Persona> pacientes = new Pacientes<Persona>();
 
             try
             {
@@ -106,7 +106,7 @@ namespace Entidades
 
                 while (sqlDataReader.Read())
                 {
-                    pacientes.Add(new Persona((int)sqlDataReader["id"],
+                    pacientes.Listado.Add(new Persona((int)sqlDataReader["id"],
                                                 sqlDataReader["nombre"].ToString(),
                                                 sqlDataReader["apellido"].ToString(),
                                                 (int)sqlDataReader["edad"],
@@ -132,16 +132,16 @@ namespace Entidades
             bool rta = false;
             try
             {
-                List<Persona> PacienteYConsultaRepetidos = DAO.ObtenerPacientes(persona.Nombre, persona.Apellido, persona.EspecialidadString);
-                PacienteYConsultaRepetidos.Add(persona);
-                List<Persona> IdRepetido = DAO.ObtenerPacientes(persona.Id);
-                IdRepetido.Add(persona);
-                if (PacienteYConsultaRepetidos is not null && PacienteYConsultaRepetidos.Count > 1)
+                Pacientes<Persona> PacienteYConsultaRepetidos = DAO.ObtenerPacientes(persona.Nombre, persona.Apellido, persona.EspecialidadString);
+                PacienteYConsultaRepetidos.Listado.Add(persona);
+                Pacientes<Persona> IdRepetido = DAO.ObtenerPacientes(persona.Id);
+                IdRepetido.Listado.Add(persona);
+                if (PacienteYConsultaRepetidos is not null && PacienteYConsultaRepetidos.Listado.Count > 1)
                 {
                     this.ConsultaOIdRepetido.Invoke(PacienteYConsultaRepetidos, EventArgs.Empty);
                     rta = false;
                 }
-                else if (IdRepetido is not null && IdRepetido.Count > 1)
+                else if (IdRepetido is not null && IdRepetido.Listado.Count > 1)
                 {
                     this.ConsultaOIdRepetido.Invoke(IdRepetido, EventArgs.Empty);
                     rta = false;
@@ -158,11 +158,12 @@ namespace Entidades
                     command.Parameters.AddWithValue("@especialidad", persona.EspecialidadString);
                     rta = true;
                     command.ExecuteNonQuery();
+
+                    
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally
@@ -172,10 +173,10 @@ namespace Entidades
             return rta;
         }
 
-        public static bool AgregarExistentes(List<Persona> personas)
+        public static bool AgregarExistentes(Pacientes<Persona> personas)
         {
             bool rta = false;
-            foreach (Persona item in personas)
+            foreach (Persona item in personas.Listado)
             {
 
                 try

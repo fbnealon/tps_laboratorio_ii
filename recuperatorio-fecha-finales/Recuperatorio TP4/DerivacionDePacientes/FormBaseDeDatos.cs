@@ -14,8 +14,11 @@ namespace DerivacionDePacientes
 {
     public partial class FormBaseDeDatos : Form
     {
-        List<Persona> pacientes;
-        public FormBaseDeDatos(List<Persona> pacientes)
+        private Pacientes<Persona> pacientes;
+
+        public Pacientes<Persona> Pacientes { get => this.pacientes; set => this.pacientes = value; }
+
+        public FormBaseDeDatos(Pacientes<Persona> pacientes)
         {
             InitializeComponent();
             this.pacientes = pacientes;
@@ -24,8 +27,8 @@ namespace DerivacionDePacientes
 
         private void FormBaseDeDatos_Load(object sender, EventArgs e)
         {
-            this.CargarListadoPacientesBD();
-            Task hilo = Task.Run(() => { while (true)
+            this.lstBoxPacientesBD.DataSource = this.pacientes.Listado;
+            Task hora = Task.Run(() => { while (true)
                 {
                     if (this.lblFecha.InvokeRequired)
                     {
@@ -40,13 +43,19 @@ namespace DerivacionDePacientes
                     }
                     Thread.Sleep(1000);
                 }
-});
-        }
+            });
 
-        private void CargarListadoPacientesBD()
-        {
-            this.pacientes = DAO.ObtenerPacientes();
-            this.lstBoxPacientesBD.DataSource = this.pacientes;
+            Task actualizarListado = Task.Run(() =>
+            {
+                while (true)
+                {
+                    foreach (Persona item in DAO.ObtenerPacientes().Listado)
+                    {
+                        this.pacientes += item;
+                    }
+                    Thread.Sleep(30000);
+                }
+            });
         }
 
         private void btnAgregarBD_Click(object sender, EventArgs e)
@@ -57,13 +66,13 @@ namespace DerivacionDePacientes
             if (altaPaciente.ShowDialog() == DialogResult.OK)
             {
                 DAO dao = new DAO();
-
                 dao.ConsultaOIdRepetido += Manejador_ConsultaOIdRepetidos;
 
                 if (dao.Agregar(altaPaciente.Paciente))
                 {
                     this.FormBaseDeDatos_Load(sender, e);
                     MessageBox.Show("Paciente agregado a la base de datos");
+                    this.pacientes += altaPaciente.Paciente;
                 }
                 else
                 {
@@ -91,7 +100,7 @@ namespace DerivacionDePacientes
 
             if( i<0 ) { return; }
 
-            Persona persona = this.pacientes[i];
+            Persona persona = this.pacientes.Listado[i];
 
             FormAltaPaciente altaPaciente = new FormAltaPaciente(persona);
             altaPaciente.StartPosition = FormStartPosition.CenterParent;
@@ -102,7 +111,7 @@ namespace DerivacionDePacientes
 
                 if (dao.Modificar(altaPaciente.Paciente))
                 {
-                    this.pacientes[i] = altaPaciente.Paciente;
+                    this.pacientes.Listado[i] = altaPaciente.Paciente;
                     this.FormBaseDeDatos_Load(sender, e);
                     MessageBox.Show("Paciente modificado");
                 }
@@ -119,7 +128,7 @@ namespace DerivacionDePacientes
 
             if (i < 0) { return; }
 
-            Persona persona = this.pacientes[i];
+            Persona persona = this.pacientes.Listado[i];
 
             FormAltaPaciente altaPaciente = new FormAltaPaciente(persona);
             altaPaciente.StartPosition = FormStartPosition.CenterParent;
@@ -129,7 +138,7 @@ namespace DerivacionDePacientes
                 DAO dao = new DAO();
                 if (dao.Eliminar(altaPaciente.Paciente))
                 {
-                    this.pacientes.RemoveAt(i);
+                    this.pacientes.Listado.RemoveAt(i);
                     this.FormBaseDeDatos_Load(sender, e);
                     MessageBox.Show("Paciente eliminado.");
                 }
