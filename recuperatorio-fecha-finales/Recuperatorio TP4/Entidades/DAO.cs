@@ -125,7 +125,21 @@ namespace Entidades
             return pacientes;
         }
 
+        public static bool Actualizar(Pacientes<Persona> pacientes)
+        {
+            bool rta = false;
+            Pacientes<Persona> pacientesExistentes = DAO.ObtenerPacientes();
+            DAO dao = new DAO();
 
+            foreach (Persona item in pacientes.Listado)
+            {
+                if (pacientesExistentes != item)
+                {
+                    dao.Agregar(item);
+                }
+            }
+            return rta;
+        }
 
         public bool Agregar(Persona persona)
         {
@@ -157,9 +171,7 @@ namespace Entidades
                     command.Parameters.AddWithValue("@edad", persona.Edad);
                     command.Parameters.AddWithValue("@especialidad", persona.EspecialidadString);
                     rta = true;
-                    command.ExecuteNonQuery();
-
-                    
+                    command.ExecuteNonQuery();                    
                 }
             }
             catch (Exception)
@@ -169,38 +181,6 @@ namespace Entidades
             finally
             {
                 connection.Close();
-            }
-            return rta;
-        }
-
-        public static bool AgregarExistentes(Pacientes<Persona> personas)
-        {
-            bool rta = false;
-            foreach (Persona item in personas.Listado)
-            {
-
-                try
-                {
-                    command.Parameters.Clear();
-                    connection.Open();
-                    command.CommandText = "INSERT INTO pacientes (id, nombre, apellido, edad, especialidad) VALUES (@id, @nombre, @apellido, @edad, @especialidad)";
-                    command.Parameters.AddWithValue("@id", item.Id);
-                    command.Parameters.AddWithValue("@nombre", item.Nombre);
-                    command.Parameters.AddWithValue("@apellido", item.Apellido);
-                    command.Parameters.AddWithValue("@edad", item.Edad);
-                    command.Parameters.AddWithValue("@especialidad", item.EspecialidadString);
-                    rta = true;
-                    command.ExecuteNonQuery();
-
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
-                }
             }
             return rta;
         }

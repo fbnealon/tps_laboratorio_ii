@@ -44,6 +44,28 @@ namespace Entidades
 
         public string EspecialidadString { get => this.especialidad.ToString(); }
 
+        public static bool operator ==(Persona p1, Persona p2)
+        {
+            bool rta = false;
+            if (p1 is not null && p2 is not null)
+            {
+                if (p1.Id == p2.Id)
+                {
+                    rta = true;
+                }
+            }
+            return rta;
+        }
+
+        public static bool operator !=(Persona p1, Persona p2)
+        {
+            return !(p1 == p2);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Persona persona && this == persona;
+        }
 
         public override string ToString()
         {

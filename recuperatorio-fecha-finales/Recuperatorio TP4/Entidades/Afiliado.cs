@@ -41,7 +41,7 @@ namespace Entidades
             bool rta = false;
             if (a1 is not null && a2 is not null)
             {
-                if (a1.Apellido == a2.Apellido && a1.nroAfiliado == a2.nroAfiliado)
+                if (a1==(Persona)a2 && a1.nroAfiliado == a2.nroAfiliado)
                 {
                     rta = true;
                 }

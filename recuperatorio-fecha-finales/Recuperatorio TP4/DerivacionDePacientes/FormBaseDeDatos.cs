@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace DerivacionDePacientes
 {
+    public delegate void DelegadoActualizarListado();
     public partial class FormBaseDeDatos : Form
     {
         private Pacientes<Persona> pacientes;
@@ -21,7 +22,7 @@ namespace DerivacionDePacientes
         public FormBaseDeDatos(Pacientes<Persona> pacientes)
         {
             InitializeComponent();
-            this.pacientes = pacientes;
+            this.pacientes = DAO.ObtenerPacientes();
             this.Text = "Base de datos";
         }
 
@@ -44,18 +45,32 @@ namespace DerivacionDePacientes
                     Thread.Sleep(1000);
                 }
             });
+            this.pacientes = DAO.ObtenerPacientes();
+            Task.Run(() => ActualizarListadoVisible());
+        }
 
-            Task actualizarListado = Task.Run(() =>
+        private void ActualizarListadoVisible()
+        {
+            while (true)
             {
-                while (true)
+                if (this.lstBoxPacientesBD.Items.Count < this.pacientes.Listado.Count)
                 {
-                    foreach (Persona item in DAO.ObtenerPacientes().Listado)
+                    if (this.lstBoxPacientesBD.InvokeRequired)
                     {
-                        this.pacientes += item;
+                        DelegadoActualizarListado delegadoActualizarListado = ActualizarListadoVisible;
+                        this.lstBoxPacientesBD.Invoke(delegadoActualizarListado);
                     }
-                    Thread.Sleep(30000);
+                    else
+                    {
+                        DAO.Actualizar(this.pacientes);
+                        foreach (Persona item in DAO.ObtenerPacientes().Listado)
+                        {
+                            this.pacientes += item;
+                        }
+                        this.lstBoxPacientesBD.Refresh();
+                    }
                 }
-            });
+            }
         }
 
         private void btnAgregarBD_Click(object sender, EventArgs e)
@@ -85,9 +100,9 @@ namespace DerivacionDePacientes
         private void Manejador_ConsultaOIdRepetidos(object sender, EventArgs e)
         {
 
-            List<Persona> lista = (List<Persona>)sender;
+            Pacientes<Persona> pacientes = (Pacientes<Persona>)sender;
 
-            foreach (Persona item in lista)
+            foreach (Persona item in pacientes.Listado)
             {
                 MessageBox.Show(item.ToString(), "Consulta o ID repetido " + DateTime.Now);
             }

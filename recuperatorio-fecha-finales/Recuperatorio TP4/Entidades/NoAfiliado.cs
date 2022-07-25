@@ -54,7 +54,7 @@ namespace Entidades
             bool rta = false;
             if (n1 is not null && n2 is not null)
             {
-                if (n1.Apellido == n2.Apellido && n1.dni == n2.dni)
+                if (n1==(Persona)n2 && n1.dni == n2.dni)
                 {
                     rta = true;
                 }
