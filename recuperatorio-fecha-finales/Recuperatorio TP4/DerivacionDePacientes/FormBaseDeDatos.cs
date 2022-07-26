@@ -46,29 +46,21 @@ namespace DerivacionDePacientes
                 }
             });
             this.pacientes = DAO.ObtenerPacientes();
-            Task.Run(() => ActualizarListadoVisible());
+            Task.Run(() => ActualizarListado());
         }
 
-        private void ActualizarListadoVisible()
+        private void ActualizarListado()
         {
-            while (true)
+            if (this.lstBoxPacientesBD.InvokeRequired)
             {
-                if (this.lstBoxPacientesBD.Items.Count < this.pacientes.Listado.Count)
+                DelegadoActualizarListado delegadoActualizarListado = ActualizarListado;
+                this.lstBoxPacientesBD.Invoke(delegadoActualizarListado);
+            }
+            else
+            {
+                if (lstBoxPacientesBD.Items.Count < this.pacientes.Listado.Count)
                 {
-                    if (this.lstBoxPacientesBD.InvokeRequired)
-                    {
-                        DelegadoActualizarListado delegadoActualizarListado = ActualizarListadoVisible;
-                        this.lstBoxPacientesBD.Invoke(delegadoActualizarListado);
-                    }
-                    else
-                    {
-                        DAO.Actualizar(this.pacientes);
-                        foreach (Persona item in DAO.ObtenerPacientes().Listado)
-                        {
-                            this.pacientes += item;
-                        }
-                        this.lstBoxPacientesBD.Refresh();
-                    }
+                    this.lstBoxPacientesBD.Refresh();
                 }
             }
         }
@@ -163,7 +155,5 @@ namespace DerivacionDePacientes
                 }
             }
         }
-
-
     }
 }

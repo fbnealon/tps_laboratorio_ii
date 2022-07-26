@@ -125,9 +125,8 @@ namespace Entidades
             return pacientes;
         }
 
-        public static bool Actualizar(Pacientes<Persona> pacientes)
+        public static void Actualizar(Pacientes<Persona> pacientes)
         {
-            bool rta = false;
             Pacientes<Persona> pacientesExistentes = DAO.ObtenerPacientes();
             DAO dao = new DAO();
 
@@ -138,7 +137,6 @@ namespace Entidades
                     dao.Agregar(item);
                 }
             }
-            return rta;
         }
 
         public bool Agregar(Persona persona)
