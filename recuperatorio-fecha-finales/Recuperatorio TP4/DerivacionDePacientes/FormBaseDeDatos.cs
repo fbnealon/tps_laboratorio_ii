@@ -22,7 +22,7 @@ namespace DerivacionDePacientes
         public FormBaseDeDatos(Pacientes<Persona> pacientes)
         {
             InitializeComponent();
-            this.pacientes = DAO.ObtenerPacientes();
+            this.pacientes = pacientes;
             this.Text = "Base de datos";
         }
 
@@ -60,6 +60,7 @@ namespace DerivacionDePacientes
             {
                 if (lstBoxPacientesBD.Items.Count < this.pacientes.Listado.Count)
                 {
+                    this.pacientes = DAO.ObtenerPacientes();
                     this.lstBoxPacientesBD.Refresh();
                 }
             }
